@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-vagrant up --provider virtualbox
+vagrant up --provider libvirt
 
 echo '######################## WAITING TILL ALL NODES ARE READY ########################'
 sleep 60

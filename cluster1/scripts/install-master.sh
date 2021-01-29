@@ -16,4 +16,6 @@ cp /vagrant/certs/id_rsa.pub /root/.ssh/id_rsa.pub
 chmod 400 /root/.ssh/id_rsa
 chmod 400 /root/.ssh/id_rsa.pub
 
+scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null /vagrant/tmp/master-join-command.sh cluster1-worker1:/vagrant/tmp/master-join-command.sh
+
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
