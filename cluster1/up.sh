@@ -10,4 +10,8 @@ vagrant ssh cluster1-master1 -c "sudo su - root -c 'kubectl apply -f /vagrant/k8
 vagrant ssh cluster1-master1 -c "mkdir -p .kube ; sudo cp /root/.kube/config ./.kube/config ; sudo chown vagrant:vagrant .kube/config"
 sleep 20
 
+echo '######################## SNAPSHOTTING ENVIRONMENT ########################'
+virsh snapshot-create-as cluster1_cluster1-master1 plain "test env is up"
+virsh snapshot-create-as cluster1_cluster1-worker1 plain "test env is up"
+
 echo '######################## ALL DONE ########################'
